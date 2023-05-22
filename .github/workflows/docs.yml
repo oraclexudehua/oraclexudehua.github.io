@@ -103,3 +103,5 @@ jobs:
           publish_dir: ./
           FOLDER: dist
           CLEAN: true
+          publish_branch: gh-pages
+          
