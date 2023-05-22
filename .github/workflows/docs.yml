@@ -104,4 +104,6 @@ jobs:
           FOLDER: dist
           CLEAN: true
           publish_branch: gh-pages
+        env:
+          github_token: ${{ secrets.ACTION_SECRET }}
           
