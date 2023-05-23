@@ -1,3 +1,28 @@
+# 关于Git搭建个人博客相关操作
+
+GitHub Pages 本用于介绍托管在 GitHub 的项目， 但是因为免费的域名以及相对稳定的环境导致用来建立个人博客网站以及静态站点是最佳的选择。 
+
+首先关于Git Pages的技术要点比较比较简单
+::: tip
+请参考 [GitHub Pages 官方指南](https://pages.github.com/) 来获取更多信息。
+:::  
+
+这里是因为要处理GitHub Pages中存在的俩个问题:  
+
+- index.html目录不能自由制定，默认是存放在根目录或者是doc目录下  
+- 相关代码建站需要构建后上传  
+
+这里采用Git Action和Pages相结合的方案:
+1. 首先将通过Action创建一个工作流
+2. 将工作流监听主分支相关代码的变动，主分支代码发生改动后，运行相关build以及deploy流程，
+3. 将发布结果(只有dist目录)push至gh-pages分支(这样就实现了站点代码和源码的分离)，
+4. 最后gh-pages设置为GitHub Pages 的发布分支。
+
+
+相关Action参数配置如下:
+
+::: details 点击展开配置样例
+```yml
 
 name: Deploy  #action 的名称
   
@@ -56,3 +81,5 @@ jobs:
         env:
           github_token: ${{ secrets.ACTION_SECRET }}
           
+```
+:::

@@ -7,13 +7,26 @@ export default {
   theme: defaultTheme({
 
     sidebar: {
-      '/day/': [
+      '/': [
+        {
+          text: 'Git',
+          collapsible: true,
+          children: ['/git/gitPage.md'],
+        },
         {
           text: 'React',
           collapsible: true,
           children: ['/day/ref.md', '/day/useEffectAndUseState.md'],
         },
-      ]
+      ],
+      // '/day/': [
+
+      //   {
+      //     text: 'React',
+      //     collapsible: true,
+      //     children: ['/day/ref.md', '/day/useEffectAndUseState.md'],
+      //   },
+      // ]
     },
     navbar: [
       {
